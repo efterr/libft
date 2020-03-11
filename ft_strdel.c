@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eseidame <eseidame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 18:12:54 by esidame           #+#    #+#             */
-/*   Updated: 2020/03/11 13:13:55 by eseidame         ###   ########.fr       */
+/*   Created: 2020/03/11 00:05:57 by eseidame          #+#    #+#             */
+/*   Updated: 2020/03/11 00:13:14 by eseidame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *s)
+void	ft_strdel(char **as)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (as)
+	{
+		free(*as);
+		*as = NULL;
+	}
 }

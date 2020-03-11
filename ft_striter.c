@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eseidame <eseidame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 18:12:54 by esidame           #+#    #+#             */
-/*   Updated: 2020/03/11 13:13:55 by eseidame         ###   ########.fr       */
+/*   Created: 2020/03/11 10:43:27 by eseidame          #+#    #+#             */
+/*   Updated: 2020/03/11 12:19:05 by eseidame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *s)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (!s || !f)
+		return ;
+	while (*s && s)
+		f(s++);
 }

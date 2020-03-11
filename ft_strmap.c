@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eseidame <eseidame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 18:12:54 by esidame           #+#    #+#             */
-/*   Updated: 2020/03/11 13:13:55 by eseidame         ###   ########.fr       */
+/*   Created: 2020/03/11 12:36:25 by eseidame          #+#    #+#             */
+/*   Updated: 2020/03/11 12:39:02 by eseidame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *s)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int	i;
+	char	*ptr1;
+	char	*ptr2;
+	char	*result;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (!s || !(result = ft_memalloc((size_t)ft_strlen((char*)s) + 1)))
+		return (NULL);
+	ptr1 = (char*)s;
+	ptr2 = result;
+	while (*ptr1)
+		*(ptr2++) = f(*(ptr1++));
+	return (result);
 }
