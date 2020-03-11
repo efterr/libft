@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eseidame <eseidame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 22:35:43 by esidame           #+#    #+#             */
-/*   Updated: 2020/03/10 23:28:36 by eseidame         ###   ########.fr       */
+/*   Created: 2020/03/09 21:59:05 by eseidame          #+#    #+#             */
+/*   Updated: 2020/03/10 22:15:28 by eseidame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+int		ft_atoi(const char *str)
 {
-	while (s && *s)
+	int sign;
+	int res;
+
+	sign = 1;
+	res = 0;
+	while (*str && (*str == '\n' || *str == '\f' || *str == '\r'
+						|| *str == '\t' || *str == '\v' || *str == ' '))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		ft_putchar(*s);
-		s++;
+		if (*str == '-')
+			sign = -sign;
+		str++;
 	}
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + *str - '0';
+		str++;
+	}
+	return (res * sign);
 }

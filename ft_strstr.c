@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eseidame <eseidame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 22:35:43 by esidame           #+#    #+#             */
-/*   Updated: 2020/03/10 23:28:36 by eseidame         ###   ########.fr       */
+/*   Created: 2020/03/10 09:48:20 by eseidame          #+#    #+#             */
+/*   Updated: 2020/03/10 19:57:57 by eseidame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	while (s && *s)
+	int		len;
+	char	*result;
+
+	result = (char *)haystack;
+	len = ft_strlen((char *)needle);
+	if (!len)
+		return ((char *)result);
+	while (*result)
 	{
-		ft_putchar(*s);
-		s++;
+		if (*result == *needle)
+			if (ft_strncmp(needle, result, len) == 0)
+				return (result);
+		result++;
 	}
+	return (NULL);
 }

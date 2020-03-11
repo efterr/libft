@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eseidame <eseidame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 22:35:43 by esidame           #+#    #+#             */
-/*   Updated: 2020/03/10 23:28:36 by eseidame         ###   ########.fr       */
+/*   Created: 2020/03/10 09:41:56 by eseidame          #+#    #+#             */
+/*   Updated: 2020/03/10 09:42:22 by eseidame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	while (s && *s)
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
+		i++;
+	while (j < n && s2[j] != '\0')
 	{
-		ft_putchar(*s);
-		s++;
+		s1[i + j] = s2[j];
+		j++;
 	}
+	s1[i + j] = '\0';
+	return (s1);
 }

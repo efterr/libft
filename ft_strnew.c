@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eseidame <eseidame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 22:35:43 by esidame           #+#    #+#             */
-/*   Updated: 2020/03/10 23:28:36 by eseidame         ###   ########.fr       */
+/*   Created: 2020/03/10 16:01:45 by eseidame          #+#    #+#             */
+/*   Updated: 2020/03/10 23:15:36 by eseidame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+char	*ft_strnew(size_t size)
 {
-	while (s && *s)
-	{
-		ft_putchar(*s);
-		s++;
-	}
+	char	*dest;
+
+	dest = (char *)ft_memalloc(sizeof(char) * size + 1);
+	return (dest);
 }

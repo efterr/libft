@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eseidame <eseidame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 22:35:43 by esidame           #+#    #+#             */
-/*   Updated: 2020/03/10 23:28:36 by eseidame         ###   ########.fr       */
+/*   Created: 2020/03/10 09:45:42 by eseidame          #+#    #+#             */
+/*   Updated: 2020/03/10 19:57:36 by eseidame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+char	*ft_strrchr(const char *s, int c)
 {
-	while (s && *s)
-	{
-		ft_putchar(*s);
-		s++;
-	}
+	char	*str;
+	int		len;
+
+	str = (char *)s;
+	len = ft_strlen((char *)s);
+	while (str[len] != c && len != 0)
+		len--;
+	if (str[len] == c)
+		return (char *)(&str[len]);
+	return (NULL);
 }

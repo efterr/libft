@@ -6,7 +6,7 @@
 /*   By: eseidame <eseidame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 23:07:24 by esidame           #+#    #+#             */
-/*   Updated: 2020/03/09 20:53:47 by eseidame         ###   ########.fr       */
+/*   Updated: 2020/03/10 23:36:03 by eseidame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
+	while (s && *s)
 	{
-		ft_putchar_fd(s[i], fd);
-		i++;
+		ft_putchar_fd(*s, fd);
+		s++;
 	}
 }

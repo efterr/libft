@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eseidame <eseidame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 22:35:43 by esidame           #+#    #+#             */
-/*   Updated: 2020/03/10 23:28:36 by eseidame         ###   ########.fr       */
+/*   Created: 2020/03/09 12:34:20 by eseidame          #+#    #+#             */
+/*   Updated: 2020/03/09 21:47:03 by eseidame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	while (s && *s)
+	const unsigned char *str1;
+	const unsigned char *str2;
+
+	str1 = (const unsigned char *)s1;
+	str2 = (const unsigned char *)s2;
+	if (s1 == s2 || n == 0)
+		return (0);
+	while (n--)
 	{
-		ft_putchar(*s);
-		s++;
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		if (n > 0)
+		{
+			str1++;
+			str2++;
+		}
 	}
+	return (0);
 }
